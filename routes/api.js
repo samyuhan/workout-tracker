@@ -16,5 +16,21 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
+router.put("/api/workouts/:id", (req, res) => {
+    Workout.findOneAndUpdate(
+        { 
+            _id: req.params.id },
+        {
+            $inc: { totalDuration: req.body.duration },
+            $push: { exercises: req.body }
+        },
+        { new: true }).then(workoutdb => {
+            res.json(workoutdb);
+        }).catch(err => {
+            res.json(err);
+        });
+});
+
+
 
 module.exports = router;
