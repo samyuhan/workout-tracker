@@ -37,7 +37,11 @@ const PlanSchema = new Schema({
               type: Number
             }
         }
-    ]
+    ],
+    totalDuration: {
+      type: Number,
+      default: 0,
+    }
 });
 
 const Plan = mongoose.model("Plan", PlanSchema);
