@@ -18,8 +18,9 @@ mongoose.connect(
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false
-  }
-);
+  })
+  .then(connect => console.log('Successful connect to mongodb'))
+  .catch(err => console.log('Failed to connect to mongodb', err));
 
 app.use(require("./routes/api.js"));
 app.use(require("./routes/html.js"));
