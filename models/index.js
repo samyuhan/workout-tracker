@@ -1,4 +1,3 @@
 module.exports = {
-    workout: require("./workout")
+    Workout: require("./Workout")
 };
-// random comment
